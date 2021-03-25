@@ -18,10 +18,16 @@ install_module() {
   echo -e "${module_name}" > "/etc/modules.d/${module_name}"
 }
 
+check_module() {
+  module_name="${1}"
+  lsmod | grep "${module_name}"
+}
+
 usage() {
   cat <<EOF
 Usage:
   ${0} -i module_name
+  ${0} -c module_name
 
 Example
   ${0} -i wireguard
@@ -31,6 +37,9 @@ EOF
 case "${1}" in
   -i)
     install_module "${2}"
+    ;;
+  -c)
+    check_module "${2}"
     ;;
   *)
     usage

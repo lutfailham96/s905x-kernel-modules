@@ -7,6 +7,10 @@ git clone git://github.com/lutfailham96/s905x-kernel-modules.git && cd s905x-ker
 ```
 - install modules, ex: wireguard
 ```sh
-bash install_modules.sh wireguard
+bash module.sh -i wireguard
+```
+- check modules, ex: wireguard
+```sh
+bash module.sh -c wireguard
 ```
 - kernel module will installed on system and automatically loaded
