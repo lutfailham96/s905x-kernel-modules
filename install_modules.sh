@@ -10,8 +10,8 @@ fi
 install_module() {
   module_name="${1}"
   module="$(find -name ${module_name}.ko)"
-  echo cp -avp "${module}" /lib/modules/$(uname -r)
-  echo insmod /lib/modules/$(uname -r)/${module_name}.ko
+  cp -afvp "${module}" /lib/modules/$(uname -r)
+  insmod /lib/modules/$(uname -r)/${module_name}.ko
 }
 
 usage() {
