@@ -10,8 +10,12 @@ fi
 install_module() {
   module_name="${1}"
   module="$(find -name ${module_name}.ko)"
+  # copy module to system
   cp -afvp "${module}" /lib/modules/$(uname -r)
+  # load module
   insmod /lib/modules/$(uname -r)/${module_name}.ko
+  # enable auto load module
+  echo -e "${module_name}" > "/etc/modules.d/${module_name}"
 }
 
 usage() {
